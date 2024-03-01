@@ -1,8 +1,9 @@
 import { API_URL } from "./../constants";
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
 import { Spin } from "antd";
 import axios from "axios";
+
+import NavBar from './../component/NavBar';
 
 const Home = () => {
   const [responseData, setResponseData] = useState(null);
@@ -29,10 +30,7 @@ const Home = () => {
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-light p-4 rounded">
-        <div className="position-absolute start-0 end-0 top-0 text-center mt-3">
-            <Link to="/what-business-to-open" className="btn btn-primary me-5">Suitable Business</Link>
-            <Link to="/overall-economic-activities" className="btn btn-primary">Economic Activities</Link>
-        </div>
+        <NavBar />
       {responseData ? (
         <div>
           <h2 className="text-center mb-4">Data from DB</h2>

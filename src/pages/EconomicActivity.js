@@ -1,9 +1,9 @@
 import { API_URL } from "./../constants";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Spin } from "antd";
 import BubbleChart from './../component/BubbleChart';
 import axios from "axios";
+import NavBar from "../component/NavBar";
 
 const EconomicActivity = () => {
   const [responseData, setResponseData] = useState(null);
@@ -30,15 +30,10 @@ const EconomicActivity = () => {
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center vh-100 bg-light p-4 rounded">
-      <div className="position-absolute start-0 end-0 top-0 text-center mt-3 mb-5 pb-5">
-        <Link to="/what-business-to-open" className="btn btn-primary me-5">
-          Suitable Business 1
-        </Link>
-        <Link to="/overall-economic-activities" className="btn btn-primary">Economic Activities</Link>
-      </div>
+      <NavBar />
       <div style={{marginTop: '50px'}}>
         {responseData ? (
-          <div style={{ width: "900px", height: "800px", marginTop: "100px", textAlign: "center" }}>
+          <div className="bubble-chart" style={{ marginTop: "100px", textAlign: "center" }}>
             <h2>Overview of Economic Activities in Baton Rouge, LA, USA</h2>
             <BubbleChart data={responseData} />
           </div>
